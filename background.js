@@ -13,7 +13,10 @@ function update() {
                 return;
             }
 
-            fetch(`https://api.github.com/notifications?access_token=${options.accessToken}`, {
+            fetch(`https://api.github.com/notifications`, {
+                headers: {
+                  "Authorization": `Bearer ${options.accessToken}`,
+                }
                 cache: 'reload'
             })
                 .then((response) => {
